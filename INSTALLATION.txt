@@ -1,0 +1,174 @@
+================================================================
+KARACHI JOBS - JOB POSTING WEBSITE
+QUICK INSTALLATION GUIDE
+================================================================
+
+REQUIREMENTS:
+-------------
+✓ PHP 8.0 or higher
+✓ MySQL 8.0 or higher  
+✓ Apache/Nginx web server
+✓ phpMyAdmin (optional, for database management)
+
+INSTALLATION STEPS:
+-------------------
+
+STEP 1: EXTRACT FILES
+----------------------
+Extract all files to your web directory:
+- XAMPP: C:/xampp/htdocs/jobsite/
+- WAMP: C:/wamp64/www/jobsite/
+- Linux: /var/www/html/jobsite/
+- Hosting: /public_html/jobsite/
+
+STEP 2: CREATE DATABASE
+------------------------
+1. Open phpMyAdmin: http://localhost/phpmyadmin
+2. Create new database: "jobsite_db"
+3. Select the database
+4. Click "Import" tab
+5. Choose file: database.sql
+6. Click "Go" button
+7. Wait for success message
+
+STEP 3: CONFIGURE DATABASE
+---------------------------
+1. Open file: config.php
+2. Update these lines:
+   
+   define('DB_HOST', 'localhost');     ← Your DB host
+   define('DB_NAME', 'jobsite_db');    ← Your DB name
+   define('DB_USER', 'root');          ← Your DB username
+   define('DB_PASS', '');              ← Your DB password
+
+3. Save the file
+
+STEP 4: CHANGE ADMIN PASSWORD
+------------------------------
+1. Open file: config.php
+2. Find this line:
+   
+   define('ADMIN_PASSWORD', 'admin123');
+
+3. Change 'admin123' to your secure password
+4. Save the file
+
+STEP 5: TEST YOUR WEBSITE
+--------------------------
+Open your browser and visit:
+
+→ Homepage: 
+  http://localhost/jobsite/public/index.php
+
+→ Admin Panel: 
+  http://localhost/jobsite/public/admin.php
+  Password: (the one you set in Step 4)
+
+================================================================
+
+TROUBLESHOOTING:
+----------------
+
+ERROR: "Database connection failed"
+FIX: Check database credentials in config.php
+
+ERROR: "Page not found"  
+FIX: Make sure all files are in the correct folder
+
+ERROR: "Admin login not working"
+FIX: Clear browser cache, check password in config.php
+
+ERROR: "Newsletter not working"
+FIX: Check browser console (F12) for JavaScript errors
+
+================================================================
+
+FILE STRUCTURE:
+---------------
+jobsite/
+├── config.php              ← Database config (IMPORTANT!)
+├── database.sql            ← Import this to MySQL
+├── README.md               ← Full documentation
+├── INSTALLATION.txt        ← This file
+├── .htaccess               ← Apache configuration
+└── public/
+    ├── index.php           ← Homepage
+    ├── job.php             ← Job details
+    ├── subscribe.php       ← Newsletter handler
+    ├── admin.php           ← Admin panel
+    ├── add-job.php         ← Add job form
+    ├── edit-job.php        ← Edit job form
+    ├── delete-job.php      ← Delete job
+    └── assets/
+        ├── css/style.css   ← Styles
+        └── js/main.js      ← JavaScript
+
+================================================================
+
+DEFAULT LOGIN CREDENTIALS:
+--------------------------
+Admin URL: /public/admin.php
+Password: admin123 (CHANGE THIS!)
+
+================================================================
+
+FEATURES:
+---------
+✓ Job listings with search & filter
+✓ Job detail pages
+✓ Newsletter subscription
+✓ Simple admin panel (no complex setup)
+✓ Add/Edit/Delete jobs
+✓ View subscribers
+✓ Mobile responsive
+✓ Secure (PDO, CSRF, XSS protection)
+
+================================================================
+
+NEXT STEPS AFTER INSTALLATION:
+-------------------------------
+1. Login to admin panel
+2. Delete sample jobs (or keep them)
+3. Add your first real job posting
+4. Test newsletter subscription
+5. Share website URL with job seekers!
+
+================================================================
+
+HOSTING DEPLOYMENT:
+-------------------
+For live hosting (cPanel/hosting):
+
+1. Upload all files via FTP/File Manager
+2. Create MySQL database in cPanel
+3. Import database.sql via phpMyAdmin
+4. Update config.php with hosting DB credentials
+5. Set permissions (if needed):
+   - Files: 644
+   - Folders: 755
+6. Access: https://yourdomain.com/public/index.php
+
+================================================================
+
+NEED HELP?
+----------
+→ Check README.md for detailed documentation
+→ Review troubleshooting section above
+→ Ensure PHP and MySQL versions are correct
+
+================================================================
+
+SECURITY REMINDERS:
+-------------------
+⚠ CHANGE admin password in config.php
+⚠ Use strong database password
+⚠ Keep PHP and MySQL updated
+⚠ Enable HTTPS (SSL) on live hosting
+⚠ Regular database backups
+
+================================================================
+
+Happy Job Posting! 🚀
+
+Made for Karachi job seekers with ❤️
+================================================================

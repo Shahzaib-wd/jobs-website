@@ -1,0 +1,334 @@
+═══════════════════════════════════════════════════════════════
+         KARACHI JOBS - DEMO & TESTING GUIDE
+═══════════════════════════════════════════════════════════════
+
+🎯 QUICK DEMO WALKTHROUGH
+──────────────────────────────────────────────────────────────
+
+After installation, follow this guide to test all features:
+
+═══════════════════════════════════════════════════════════════
+1️⃣  HOMEPAGE DEMO
+═══════════════════════════════════════════════════════════════
+
+URL: http://localhost/jobsite/public/index.php
+
+✓ What to see:
+  • Blue navigation bar with "Karachi Jobs" logo
+  • Search bar with category and location filters
+  • 5 sample job listings displayed
+  • Each job shows: title, company, description, badges
+  • Newsletter subscription form (blue section)
+  • Footer with copyright
+
+✓ What to test:
+  [1] Search for "PHP" → should show PHP Developer job
+  [2] Filter by category "IT & Software" → shows IT jobs
+  [3] Try pagination (if more than 10 jobs)
+  [4] Click any job title → goes to detail page
+
+═══════════════════════════════════════════════════════════════
+2️⃣  JOB DETAIL PAGE DEMO
+═══════════════════════════════════════════════════════════════
+
+URL: http://localhost/jobsite/public/job.php?id=1
+
+✓ What to see:
+  • Full job title and company name
+  • Category, location, job type badges
+  • Posted date
+  • Complete job description
+  • Requirements section
+  • Contact information (email & phone)
+  • Sidebar with newsletter form
+  • Quick Apply buttons (Email & Call)
+
+✓ What to test:
+  [1] Click "Email" button → opens email client
+  [2] Click "Call" button → opens phone dialer
+  [3] Subscribe to newsletter from sidebar
+  [4] Click "Back to Jobs" → returns to homepage
+
+═══════════════════════════════════════════════════════════════
+3️⃣  NEWSLETTER SUBSCRIPTION DEMO
+═══════════════════════════════════════════════════════════════
+
+Location: Homepage (blue section) OR Job Detail (sidebar)
+
+✓ What to test:
+  [1] Enter valid email: test@example.com → Success message
+  [2] Enter same email again → "Already subscribed" message
+  [3] Enter invalid email: notanemail → Validation error
+  [4] Leave empty and submit → Required field error
+
+✓ Expected behavior:
+  • Success: Green alert "Successfully subscribed!"
+  • Duplicate: Yellow alert "Email already subscribed"
+  • Invalid: Browser validation or error message
+  • Auto-hide: Messages disappear after 5 seconds
+
+═══════════════════════════════════════════════════════════════
+4️⃣  ADMIN LOGIN DEMO
+═══════════════════════════════════════════════════════════════
+
+URL: http://localhost/jobsite/public/admin.php
+
+✓ What to see:
+  • Lock icon
+  • "Admin Login" heading
+  • Password input field
+  • Login button
+  • "Back to Homepage" link
+
+✓ What to test:
+  [1] Wrong password → "Invalid password!" error
+  [2] Correct password (admin123) → Access granted
+  [3] After login → Dashboard with stats cards
+
+DEFAULT PASSWORD: admin123
+(⚠️ CHANGE THIS IN config.php!)
+
+═══════════════════════════════════════════════════════════════
+5️⃣  ADMIN DASHBOARD DEMO
+═══════════════════════════════════════════════════════════════
+
+URL: http://localhost/jobsite/public/admin.php (after login)
+
+✓ What to see:
+  • Dark navigation with "Admin Panel" title
+  • "View Site" and "Logout" buttons
+  • 3 stats cards:
+    → Blue: Total Jobs (5)
+    → Green: Active Jobs (5)
+    → Cyan: Subscribers (varies)
+  • Jobs table with all 5 sample jobs
+  • Newsletter subscribers table
+  • Action buttons for each job
+
+✓ Stats displayed:
+  📊 Total Jobs: 5
+  ✅ Active Jobs: 5
+  👥 Subscribers: (depends on your testing)
+
+═══════════════════════════════════════════════════════════════
+6️⃣  ADD JOB DEMO
+═══════════════════════════════════════════════════════════════
+
+URL: http://localhost/jobsite/public/add-job.php
+
+✓ What to test:
+  [1] Fill all required fields (marked with *)
+  [2] Leave title empty → Validation error
+  [3] Enter invalid email → Validation error
+  [4] Fill complete form:
+      • Title: Test Job
+      • Company: Test Company
+      • Category: Testing
+      • Location: Karachi - Test Area
+      • Job Type: Full-time
+      • Short Description: This is a test job
+      • Full Description: Complete test description
+  [5] Click "Post Job" → Success message
+  [6] Redirects to dashboard after 2 seconds
+  [7] New job appears in jobs table
+
+═══════════════════════════════════════════════════════════════
+7️⃣  EDIT JOB DEMO
+═══════════════════════════════════════════════════════════════
+
+URL: http://localhost/jobsite/public/edit-job.php?id=1
+
+✓ What to see:
+  • Form pre-filled with existing job data
+  • All fields editable
+  • Yellow "Edit Job" header
+  • "Update Job", "Cancel", and "View Job" buttons
+
+✓ What to test:
+  [1] Change job title
+  [2] Update salary range
+  [3] Change status to "Inactive"
+  [4] Click "Update Job" → Success message
+  [5] Click "View Job" → Opens job detail in new tab
+  [6] Verify changes are saved
+  [7] Go back to dashboard → Changes reflected
+
+═══════════════════════════════════════════════════════════════
+8️⃣  DELETE JOB DEMO
+═══════════════════════════════════════════════════════════════
+
+From Admin Dashboard:
+
+✓ What to test:
+  [1] Click red trash icon on any job
+  [2] Confirmation dialog appears
+  [3] Click "Cancel" → Nothing happens
+  [4] Click trash icon again
+  [5] Click "OK" → Job deleted
+  [6] Page reloads → Job removed from table
+  [7] Job no longer appears on homepage
+
+⚠️ WARNING: This permanently deletes the job!
+
+═══════════════════════════════════════════════════════════════
+9️⃣  SEARCH & FILTER DEMO
+═══════════════════════════════════════════════════════════════
+
+From Homepage:
+
+✓ Search tests:
+  [1] Search: "developer" → Shows developer jobs
+  [2] Search: "marketing" → Shows marketing jobs
+  [3] Search: "XYZ123" → "No jobs found" message
+  [4] Clear search → All jobs appear again
+
+✓ Category filter:
+  [1] Select "IT & Software" → IT jobs only
+  [2] Select "Marketing & Sales" → Marketing jobs only
+  [3] Select "All Categories" → All jobs
+
+✓ Location filter:
+  [1] Type "Clifton" → Jobs in Clifton
+  [2] Type "DHA" → Jobs in DHA
+  [3] Clear location → All jobs
+
+✓ Combined filters:
+  [1] Search: "manager" + Category: "Marketing & Sales"
+  [2] Should show only marketing manager jobs
+
+═══════════════════════════════════════════════════════════════
+🔟  MOBILE RESPONSIVE DEMO
+═══════════════════════════════════════════════════════════════
+
+✓ How to test:
+  [1] Press F12 in browser → Developer Tools
+  [2] Click device toolbar icon (phone/tablet icon)
+  [3] Select "iPhone 12 Pro" or "iPad"
+  [4] OR resize browser window to narrow width
+
+✓ What to check:
+  • Navigation collapses to hamburger menu
+  • Job cards stack vertically
+  • Buttons become full-width
+  • Text remains readable
+  • No horizontal scrolling
+  • Touch targets are large enough
+
+═══════════════════════════════════════════════════════════════
+🔒 SECURITY DEMO
+═══════════════════════════════════════════════════════════════
+
+✓ CSRF Protection Test:
+  [1] Try accessing add-job.php without token → Form won't submit
+  [2] Submit form with invalid token → Error message
+
+✓ SQL Injection Test:
+  [1] Search for: ' OR 1=1 --
+  [2] Result: No error, safely handled
+  [3] Database not compromised
+
+✓ XSS Prevention Test:
+  [1] Add job with title: <script>alert('XSS')</script>
+  [2] Result: Script appears as text, not executed
+
+✓ Session Security:
+  [1] Logout from admin
+  [2] Try to access admin pages directly
+  [3] Result: Redirected to login page
+
+═══════════════════════════════════════════════════════════════
+📊 SAMPLE DATA INCLUDED
+═══════════════════════════════════════════════════════════════
+
+5 Pre-loaded Jobs:
+
+1. Senior PHP Developer
+   • Company: Tech Solutions Pvt Ltd
+   • Category: IT & Software
+   • Location: Karachi - Clifton
+   • Salary: Rs. 80,000 - 120,000
+
+2. Marketing Manager
+   • Company: ABC Corporation
+   • Category: Marketing & Sales
+   • Location: Karachi - Gulshan
+   • Salary: Rs. 60,000 - 90,000
+
+3. Graphic Designer
+   • Company: Creative Studio
+   • Category: Design & Creative
+   • Location: Karachi - DHA
+   • Salary: Rs. 30,000 - 50,000
+
+4. Accountant
+   • Company: Finance Group Ltd
+   • Category: Accounting & Finance
+   • Location: Karachi - Saddar
+   • Salary: Rs. 40,000 - 60,000
+
+5. Customer Service Representative
+   • Company: Call Center Solutions
+   • Category: Customer Service
+   • Location: Karachi - North Nazimabad
+   • Salary: Rs. 25,000 - 35,000
+
+═══════════════════════════════════════════════════════════════
+✅ DEMO CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+Public Features:
+□ Homepage loads correctly
+□ Search functionality works
+□ Category filter works
+□ Location filter works
+□ Pagination displays
+□ Job detail page loads
+□ Newsletter subscription works
+□ Mobile responsive layout
+
+Admin Features:
+□ Admin login works
+□ Dashboard shows stats
+□ Add job form works
+□ Edit job form works
+□ Delete job works
+□ Subscriber list displays
+□ Logout works
+
+Security:
+□ CSRF protection active
+□ XSS prevention works
+□ SQL injection prevented
+□ Session management secure
+
+═══════════════════════════════════════════════════════════════
+🎬 DEMO SCENARIO (5 MINUTES)
+═══════════════════════════════════════════════════════════════
+
+Perfect demo flow for showing the website:
+
+1. [0:30] Open homepage → Show job listings
+2. [0:45] Use search → Find specific job
+3. [1:00] Click job → View full details
+4. [1:15] Subscribe to newsletter → Show success
+5. [1:45] Go to admin panel → Login
+6. [2:15] Show dashboard stats
+7. [2:45] Add new job → Fill form, submit
+8. [3:30] Edit existing job → Update details
+9. [4:00] View subscriber list
+10. [4:30] Delete a job → Confirm deletion
+11. [4:45] Logout → Return to homepage
+12. [5:00] Show mobile responsive → Resize browser
+
+═══════════════════════════════════════════════════════════════
+
+🎉 DEMO COMPLETE!
+
+The website is fully functional and ready for production use.
+
+For questions, check:
+→ README.md (full documentation)
+→ INSTALLATION.txt (setup guide)
+→ QUICK-START.txt (5-min install)
+
+═══════════════════════════════════════════════════════════════

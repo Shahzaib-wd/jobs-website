@@ -1,0 +1,62 @@
+╔════════════════════════════════════════════════════════╗
+║     KARACHI JOBS - QUICK START GUIDE (5 MINUTES)      ║
+╚════════════════════════════════════════════════════════╝
+
+📦 STEP 1: EXTRACT
+   → Extract ZIP to: C:/xampp/htdocs/jobsite/
+
+📊 STEP 2: DATABASE  
+   → phpMyAdmin: http://localhost/phpmyadmin
+   → Create database: jobsite_db
+   → Import: database.sql
+
+⚙️ STEP 3: CONFIG
+   → Edit: config.php
+   → Change admin password (line 16)
+   → Update DB credentials if needed (lines 8-11)
+
+✅ STEP 4: DONE!
+   → Visit: http://localhost/jobsite/public/index.php
+   → Admin: http://localhost/jobsite/public/admin.php
+
+────────────────────────────────────────────────────────
+
+DEFAULT CREDENTIALS:
+Admin Password: admin123 (CHANGE THIS!)
+
+────────────────────────────────────────────────────────
+
+FOLDER STRUCTURE:
+jobsite/
+  ├── config.php           ← Change password here!
+  ├── database.sql         ← Import this!
+  └── public/
+      ├── index.php        ← Homepage
+      ├── admin.php        ← Admin login
+      └── assets/          ← CSS & JS
+
+────────────────────────────────────────────────────────
+
+FEATURES:
+✓ No user login/signup needed
+✓ Simple admin panel (1 password)
+✓ Add/Edit/Delete jobs
+✓ Newsletter subscription
+✓ Search & filter
+✓ Mobile responsive
+✓ Bootstrap 5 design
+
+────────────────────────────────────────────────────────
+
+REQUIREMENTS:
+→ PHP 8+
+→ MySQL 8+
+→ Apache/Nginx
+
+────────────────────────────────────────────────────────
+
+FOR DETAILED HELP, READ:
+→ INSTALLATION.txt (step-by-step guide)
+→ README.md (full documentation)
+
+════════════════════════════════════════════════════════
