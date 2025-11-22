@@ -164,11 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-// Form validation helper
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-}
 
 // Console welcome message
 console.log('%cKarachi Jobs Portal', 'color: #0d6efd; font-size: 20px; font-weight: bold;');

@@ -94,9 +94,6 @@ $categories = $categoriesStmt->fetchAll(PDO::FETCH_COLUMN);
                     <li class="nav-item">
                         <a class="nav-link" href="#newsletter">Newsletter</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.php">Admin</a>
-                    </li>
                 </ul>
             </div>
         </div>
